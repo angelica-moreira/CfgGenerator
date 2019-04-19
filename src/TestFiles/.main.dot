@@ -1,0 +1,17 @@
+digraph "CFG for 'main' function" {
+	label="CFG for 'main' function";
+
+	Node0x7fa81c42e540 [shape=record,label="{entry:\l  br label %while.cond\l}"];
+	Node0x7fa81c42e540 -> Node0x7fa81c42e580;
+	Node0x7fa81c42e580 [shape=record,label="{while.cond:                                       \l  %i.0 = phi i32 [ 1, %entry ], [ %inc, %if.end ]\l  %max.0 = phi i32 [ 0, %entry ], [ %max.1, %if.end ]\l  %cmp = icmp slt i32 %i.0, %argc\l  br i1 %cmp, label %while.body, label %while.end\l|{<s0>T|<s1>F}}"];
+	Node0x7fa81c42e580:s0 -> Node0x7fa81c42cc70;
+	Node0x7fa81c42e580:s1 -> Node0x7fa81c42cd30;
+	Node0x7fa81c42cc70 [shape=record,label="{while.body:                                       \l  %idxprom = sext i32 %i.0 to i64\l  %arrayidx = getelementptr inbounds i8*, i8** %argv, i64 %idxprom\l  %0 = load i8*, i8** %arrayidx, align 8\l  %call = call i32 @atoi(i8* %0)\l  %inc = add nsw i32 %i.0, 1\l  %cmp1 = icmp sgt i32 %call, %max.0\l  br i1 %cmp1, label %if.then, label %if.end\l|{<s0>T|<s1>F}}"];
+	Node0x7fa81c42cc70:s0 -> Node0x7fa81c42ccb0;
+	Node0x7fa81c42cc70:s1 -> Node0x7fa81c42ccf0;
+	Node0x7fa81c42ccb0 [shape=record,label="{if.then:                                          \l  br label %if.end\l}"];
+	Node0x7fa81c42ccb0 -> Node0x7fa81c42ccf0;
+	Node0x7fa81c42ccf0 [shape=record,label="{if.end:                                           \l  %max.1 = phi i32 [ %call, %if.then ], [ %max.0, %while.body ]\l  br label %while.cond\l}"];
+	Node0x7fa81c42ccf0 -> Node0x7fa81c42e580;
+	Node0x7fa81c42cd30 [shape=record,label="{while.end:                                        \l  %call2 = call i32 (i8*, ...) @printf(i8* getelementptr inbounds ([10 x i8],\l... [10 x i8]* @.str, i32 0, i32 0), i32 %max.0)\l  ret i32 0\l}"];
+}
