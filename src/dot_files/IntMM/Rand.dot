@@ -8,6 +8,6 @@ BB2 [shape=record,
              %7 = store %6, seed\l
              %8 = load seed\l
              %9 = trunc %8\l
-             ret conv\l
+             ret %9\l
              }"];
 }

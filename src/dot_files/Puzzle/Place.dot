@@ -107,6 +107,6 @@ BB80 -> BB87
 BB87 [shape=record,
     label="{BB87:\l\l
              %retval.0 = phi [ %k.1, BB86 ] , [ 0, BB80 ] \l
-             ret retval.0\l
+             ret %retval.0\l
              }"];
 }

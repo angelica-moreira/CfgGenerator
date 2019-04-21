@@ -69,6 +69,6 @@ BB12 [shape=record,
 BB12 -> BB11
 BB19 [shape=record,
     label="{BB19:\l\l
-             ret result.0\l
+             ret %result.0\l
              }"];
 }

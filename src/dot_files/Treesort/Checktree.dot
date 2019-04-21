@@ -115,6 +115,6 @@ BB143 -> BB133
 BB133 [shape=record,
     label="{BB133:\l\l
              %result.3 = phi [ %result.2, BB143 ] , [ %result.1, BB110 ] \l
-             ret result.3\l
+             ret %result.3\l
              }"];
 }

@@ -54,10 +54,10 @@ function compile(){
 
 function load(){
   echo "Loading mem2reg optimization."
-  opt -mem2reg $program_ll -o $program_ll
+  opt -mem2reg $program_ll -S -o $program_ll
 
   echo "Loading CfgGenerator pass to generate the dot file."
-  opt -load $cfg_generator -cfg-generator -debug-only=CfgGenerator -o=$program_ll < $program_ll
+  opt -load $cfg_generator -cfg-generator -debug-only=CfgGenerator -S -o=$program_ll < $program_ll
 
   echo "The dot files were generated."
 }
@@ -77,7 +77,7 @@ function moveFiles(){
   fi
 
   #In case the dot files of the current code exists move it to the correct directory
-  echo "Moving the generated dot files to the folder ${directory_name_program_dot_files}."
+  echo "Moving the generated dot files to the folder ${directory_name_program_dot_files}"
   cp *.dot $directory_name_program_dot_files
   rm -f *.dot
 }

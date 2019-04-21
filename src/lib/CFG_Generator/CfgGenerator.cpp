@@ -75,7 +75,14 @@ string CfgGenerator::getConstantValue(Constant *value)
   }
   else if (ConstantFP *CFP = dyn_cast<ConstantFP>(value))
   {
-    strValue = to_string((&CFP->getValueAPF())->convertToDouble());
+    if (CFP->getType()->isFloatTy())
+    {
+      strValue = to_string((&CFP->getValueAPF())->convertToFloat());
+    }
+    else
+    {
+      strValue = to_string((&CFP->getValueAPF())->convertToDouble());
+    }
   }
 
   return strValue;
@@ -153,7 +160,12 @@ string CfgGenerator::returnInstToString(ReturnInst *returnInst)
     }
     else
     {
-      strReturn.append(operandValue->getName());
+      map<Value *, string>::iterator it = valuesMap.find(operandValue);
+      string label;
+      if (it != valuesMap.end())
+        strReturn.append(it->second);
+      else
+        strReturn.append(operandValue->getName());
     }
   }
 
