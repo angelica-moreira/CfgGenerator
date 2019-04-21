@@ -41,3 +41,6 @@ don't you can convert it by executing the following comamnd: dot -Tpdf [file_nam
 
 Obs.: The example program of the first project description is inside the folder TP1/CfgGenerator/src/TestFiles/Test and the benchmarks 
 are inside the folder TP1/CfgGenerator/src/TestFiles/standford
+
+Obs2.: The source code of our pass is inside the folder TP1/CfgGenerator/src/lib/CFG_Generator and it was regitred 
+with the name: cfg-generator.
