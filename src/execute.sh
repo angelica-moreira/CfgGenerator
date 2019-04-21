@@ -27,7 +27,8 @@ extension=${program_file_name#*.}
 program_file_name=${program_file_name%.*}
 
 pass_path="$(dirname "$script_path")"
-cfg_generator=${pass_path}/build/libCfgGenerator.$suffix
+cfg_generator=${script_path}/build/libCfgGenerator.$suffix
+
 
 directory_name="$(dirname "$program")"
 #clean all files from the current program files
