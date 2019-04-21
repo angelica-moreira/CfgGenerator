@@ -1,0 +1,15 @@
+digraph "CFG for 'Uniform11' function" {
+BB77 [shape=record,
+    label="{BB77:\l\l
+             %78 = load %79\l
+             %80 = mul 4855, %78\l
+             %81 = add %80, 1731\l
+             %82 = and %81, 8191\l
+             %83 = store %82, %79\l
+             %84 = load %79\l
+             %85 = sitofp %84\l
+             %86 = fdiv %85, 8192.000000\l
+             %87 = store %86, %88\l
+             ret\l
+             }"];
+}

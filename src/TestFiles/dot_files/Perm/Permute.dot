@@ -1,0 +1,60 @@
+digraph "CFG for 'Permute' function" {
+BB28 [shape=record,
+    label="{BB28:\l\l
+             %29 = load pctr\l
+             %30 = add %29, 1\l
+             %31 = store %30, pctr\l
+             %32 = icmp-ne %33, 1\l
+             br %32 BB34 BB35\l
+             }"];
+BB28 -> BB34
+BB28 -> BB35
+BB34 [shape=record,
+    label="{BB34:\l\l
+             %36 = sub %33, 1\l
+             %37 = call @Permute( %36)\l
+             %38 = sub %33, 1\l
+             br BB39\l
+             }"];
+BB34 -> BB39
+BB39 [shape=record,
+    label="{BB39:\l\l
+             %k.0 = phi [ %38, BB34 ] , [ %40, BB41 ] \l
+             %42 = icmp-sge %k.0, 1\l
+             br %42 BB43 BB44\l
+             }"];
+BB39 -> BB43
+BB39 -> BB44
+BB43 [shape=record,
+    label="{BB43:\l\l
+             %45 = sext %33\l
+             %46 = getelementptr permarray, 0, %45\l
+             %47 = sext %k.0\l
+             %48 = getelementptr permarray, 0, %47\l
+             %49 = call @Swap()\l
+             %50 = sub %33, 1\l
+             %51 = call @Permute( %50)\l
+             %52 = sext %33\l
+             %53 = getelementptr permarray, 0, %52\l
+             %54 = sext %k.0\l
+             %55 = getelementptr permarray, 0, %54\l
+             %56 = call @Swap()\l
+             br BB41\l
+             }"];
+BB43 -> BB41
+BB41 [shape=record,
+    label="{BB41:\l\l
+             %40 = add %k.0, -1\l
+             br BB39\l
+             }"];
+BB41 -> BB39
+BB44 [shape=record,
+    label="{BB44:\l\l
+             br BB35\l
+             }"];
+BB44 -> BB35
+BB35 [shape=record,
+    label="{BB35:\l\l
+             ret\l
+             }"];
+}

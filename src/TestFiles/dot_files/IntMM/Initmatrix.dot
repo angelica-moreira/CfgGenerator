@@ -1,0 +1,64 @@
+digraph "CFG for 'Initmatrix' function" {
+BB10 [shape=record,
+    label="{BB10:\l\l
+             br BB11\l
+             }"];
+BB10 -> BB11
+BB11 [shape=record,
+    label="{BB11:\l\l
+             %i.0 = phi [ 1, BB10 ] , [ %12, BB13 ] \l
+             %14 = icmp-sle %i.0, 40\l
+             br %14 BB15 BB16\l
+             }"];
+BB11 -> BB15
+BB11 -> BB16
+BB15 [shape=record,
+    label="{BB15:\l\l
+             br BB17\l
+             }"];
+BB15 -> BB17
+BB17 [shape=record,
+    label="{BB17:\l\l
+             %j.0 = phi [ 1, BB15 ] , [ %18, BB19 ] \l
+             %20 = icmp-sle %j.0, 40\l
+             br %20 BB21 BB22\l
+             }"];
+BB17 -> BB21
+BB17 -> BB22
+BB21 [shape=record,
+    label="{BB21:\l\l
+             %23 = call @Rand()\l
+             %24 = sdiv %23, 120\l
+             %25 = mul %24, 120\l
+             %26 = sub %23, %25\l
+             %27 = sub %26, 60\l
+             %28 = sext %i.0\l
+             %29 = getelementptr %30, %28\l
+             %31 = sext %j.0\l
+             %32 = getelementptr %29, 0, %31\l
+             %33 = store %27, %32\l
+             br BB19\l
+             }"];
+BB21 -> BB19
+BB19 [shape=record,
+    label="{BB19:\l\l
+             %18 = add %j.0, 1\l
+             br BB17\l
+             }"];
+BB19 -> BB17
+BB22 [shape=record,
+    label="{BB22:\l\l
+             br BB13\l
+             }"];
+BB22 -> BB13
+BB13 [shape=record,
+    label="{BB13:\l\l
+             %12 = add %i.0, 1\l
+             br BB11\l
+             }"];
+BB13 -> BB11
+BB16 [shape=record,
+    label="{BB16:\l\l
+             ret\l
+             }"];
+}

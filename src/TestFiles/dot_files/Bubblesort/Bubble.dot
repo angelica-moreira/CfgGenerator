@@ -1,0 +1,111 @@
+digraph "CFG for 'Bubble' function" {
+BB53 [shape=record,
+    label="{BB53:\l\l
+             %54 = call @bInitarr()\l
+             %55 = store 500, top\l
+             br BB56\l
+             }"];
+BB53 -> BB56
+BB56 [shape=record,
+    label="{BB56:\l\l
+             %57 = load top\l
+             %58 = icmp-sgt %57, 1\l
+             br %58 BB59 BB60\l
+             }"];
+BB56 -> BB59
+BB56 -> BB60
+BB59 [shape=record,
+    label="{BB59:\l\l
+             br BB61\l
+             }"];
+BB59 -> BB61
+BB61 [shape=record,
+    label="{BB61:\l\l
+             %i.0 = phi [ 1, BB59 ] , [ %62, BB63 ] \l
+             %64 = load top\l
+             %65 = icmp-slt %i.0, %64\l
+             br %65 BB66 BB67\l
+             }"];
+BB61 -> BB66
+BB61 -> BB67
+BB66 [shape=record,
+    label="{BB66:\l\l
+             %68 = sext %i.0\l
+             %69 = getelementptr sortlist, 0, %68\l
+             %70 = load %69\l
+             %71 = add %i.0, 1\l
+             %72 = sext %71\l
+             %73 = getelementptr sortlist, 0, %72\l
+             %74 = load %73\l
+             %75 = icmp-sgt %70, %74\l
+             br %75 BB76 BB63\l
+             }"];
+BB66 -> BB76
+BB66 -> BB63
+BB76 [shape=record,
+    label="{BB76:\l\l
+             %77 = sext %i.0\l
+             %78 = getelementptr sortlist, 0, %77\l
+             %79 = load %78\l
+             %80 = add %i.0, 1\l
+             %81 = sext %80\l
+             %82 = getelementptr sortlist, 0, %81\l
+             %83 = load %82\l
+             %84 = sext %i.0\l
+             %85 = getelementptr sortlist, 0, %84\l
+             %86 = store %83, %85\l
+             %87 = add %i.0, 1\l
+             %88 = sext %87\l
+             %89 = getelementptr sortlist, 0, %88\l
+             %90 = store %79, %89\l
+             br BB63\l
+             }"];
+BB76 -> BB63
+BB63 [shape=record,
+    label="{BB63:\l\l
+             %62 = add %i.0, 1\l
+             br BB61\l
+             }"];
+BB63 -> BB61
+BB67 [shape=record,
+    label="{BB67:\l\l
+             %91 = load top\l
+             %92 = sub %91, 1\l
+             %93 = store %92, top\l
+             br BB56\l
+             }"];
+BB67 -> BB56
+BB60 [shape=record,
+    label="{BB60:\l\l
+             %94 = loa\l
+             %95 = load littlest\l
+             %96 = icmp-ne %94, %95\l
+             br %96 BB97 BB98\l
+             }"];
+BB60 -> BB97
+BB60 -> BB98
+BB98 [shape=record,
+    label="{BB98:\l\l
+             %99 = loa\l
+             %100 = load biggest\l
+             %101 = icmp-ne %99, %100\l
+             br %101 BB97 BB102\l
+             }"];
+BB98 -> BB97
+BB98 -> BB102
+BB97 [shape=record,
+    label="{BB97:\l\l
+             %103 = call @printf()\l
+             br BB102\l
+             }"];
+BB97 -> BB102
+BB102 [shape=record,
+    label="{BB102:\l\l
+             %104 = add %105, 1\l
+             %106 = sext %104\l
+             %107 = getelementptr sortlist, 0, %106\l
+             %108 = load %107\l
+             %109 = call @printf( %108)\l
+             ret\l
+             }"];
+}

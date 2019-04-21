@@ -1,0 +1,18 @@
+digraph "CFG for 'CreateNode' function" {
+BB53 [shape=record,
+    label="{BB53:\l\l
+             %54 = call @malloc( 24)\l
+             %55 = bitcast %54\l
+             %56 = store %55, %57\l
+             %58 = load %57\l
+             %59 = getelementptr %58, 0, 0\l
+             %60 = store %59\l
+             %61 = load %57\l
+             %62 = getelementptr %61, 0, 1\l
+             %63 = store %62\l
+             %64 = load %57\l
+             %65 = getelementptr %64, 0, 2\l
+             %66 = store %67, %65\l
+             ret\l
+             }"];
+}

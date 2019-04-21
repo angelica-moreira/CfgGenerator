@@ -1,0 +1,31 @@
+digraph "CFG for 'tower' function" {
+BB129 [shape=record,
+    label="{BB129:\l\l
+             %130 = icmp-eq %131, 1\l
+             br %130 BB132 BB133\l
+             }"];
+BB129 -> BB132
+BB129 -> BB133
+BB132 [shape=record,
+    label="{BB132:\l\l
+             %134 = call @Move( %135,%136)\l
+             br BB137\l
+             }"];
+BB132 -> BB137
+BB133 [shape=record,
+    label="{BB133:\l\l
+             %138 = sub 6, %136\l
+             %139 = sub %138, %135\l
+             %140 = sub %131, 1\l
+             %141 = call @tower( %140,%139,%136)\l
+             %142 = call @Move( %135,%136)\l
+             %143 = sub %131, 1\l
+             %144 = call @tower( %143,%135,%139)\l
+             br BB137\l
+             }"];
+BB133 -> BB137
+BB137 [shape=record,
+    label="{BB137:\l\l
+             ret\l
+             }"];
+}

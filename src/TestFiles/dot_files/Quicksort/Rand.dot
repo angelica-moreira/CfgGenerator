@@ -1,0 +1,13 @@
+digraph "CFG for 'Rand' function" {
+BB2 [shape=record,
+    label="{BB2:\l\l
+             %3 = load seed\l
+             %4 = mul %3, 1309\l
+             %5 = add %4, 13849\l
+             %6 = and %5, 65535\l
+             %7 = store %6, seed\l
+             %8 = load seed\l
+             %9 = trunc %8\l
+             ret conv\l
+             }"];
+}

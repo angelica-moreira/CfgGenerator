@@ -1,0 +1,67 @@
+digraph "CFG for 'Remove' function" {
+BB88 [shape=record,
+    label="{BB88:\l\l
+             br BB89\l
+             }"];
+BB88 -> BB89
+BB89 [shape=record,
+    label="{BB89:\l\l
+             %k.0 = phi [ 0, BB88 ] , [ %90, BB91 ] \l
+             %92 = sext %93\l
+             %94 = getelementptr piecemax, 0, %92\l
+             %95 = load %94\l
+             %96 = icmp-sle %k.0, %95\l
+             br %96 BB97 BB98\l
+             }"];
+BB89 -> BB97
+BB89 -> BB98
+BB97 [shape=record,
+    label="{BB97:\l\l
+             %99 = sext %93\l
+             %100 = getelementptr p, 0, %99\l
+             %101 = sext %k.0\l
+             %102 = getelementptr %100, 0, %101\l
+             %103 = load %102\l
+             %104 = icmp-ne %103, 0\l
+             br %104 BB105 BB106\l
+             }"];
+BB97 -> BB105
+BB97 -> BB106
+BB105 [shape=record,
+    label="{BB105:\l\l
+             %107 = add %108, %k.0\l
+             %109 = sext %107\l
+             %110 = getelementptr puzzl, 0, %109\l
+             %111 = store 0, %110\l
+             br BB106\l
+             }"];
+BB105 -> BB106
+BB106 [shape=record,
+    label="{BB106:\l\l
+             br BB91\l
+             }"];
+BB106 -> BB91
+BB91 [shape=record,
+    label="{BB91:\l\l
+             %90 = add %k.0, 1\l
+             br BB89\l
+             }"];
+BB91 -> BB89
+BB98 [shape=record,
+    label="{BB98:\l\l
+             %112 = sext %93\l
+             %113 = getelementptr class, 0, %112\l
+             %114 = load %113\l
+             %115 = sext %114\l
+             %116 = getelementptr piececount, 0, %115\l
+             %117 = load %116\l
+             %118 = add %117, 1\l
+             %119 = sext %93\l
+             %120 = getelementptr class, 0, %119\l
+             %121 = load %120\l
+             %122 = sext %121\l
+             %123 = getelementptr piececount, 0, %122\l
+             %124 = store %118, %123\l
+             ret\l
+             }"];
+}

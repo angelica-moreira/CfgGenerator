@@ -1,0 +1,241 @@
+digraph "CFG for 'Fft' function" {
+BB191 [shape=record,
+    label="{BB191:\l\l
+             %192 = sdiv %193, 2\l
+             br BB194\l
+             }"];
+BB191 -> BB194
+BB194 [shape=record,
+    label="{BB194:\l\l
+             %l.0 = phi [ 1, BB191 ] , [ %195, BB196 ] \l
+             br BB197\l
+             }"];
+BB194 -> BB197
+BB197 [shape=record,
+    label="{BB197:\l\l
+             %i.0 = phi [ 1, BB194 ] , [ %198, BB199 ] \l
+             %j.0 = phi [ %l.0, BB194 ] , [ %200, BB199 ] \l
+             %k.0 = phi [ 0, BB194 ] , [ %j.0, BB199 ] \l
+             br BB201\l
+             }"];
+BB197 -> BB201
+BB201 [shape=record,
+    label="{BB201:\l\l
+             %i.1 = phi [ %i.0, BB197 ] , [ %198, BB202 ] \l
+             %203 = sext %i.1\l
+             %204 = getelementptr %205, %203\l
+             %206 = getelementptr %204, 0, 0\l
+             %207 = load %206\l
+             %208 = add %192, %i.1\l
+             %209 = sext %208\l
+             %210 = getelementptr %205, %209\l
+             %211 = getelementptr %210, 0, 0\l
+             %212 = load %211\l
+             %213 = fadd %207, %212\l
+             %214 = add %i.1, %k.0\l
+             %215 = sext %214\l
+             %216 = getelementptr %217, %215\l
+             %218 = getelementptr %216, 0, 0\l
+             %219 = store %213, %218\l
+             %220 = sext %i.1\l
+             %221 = getelementptr %205, %220\l
+             %222 = getelementptr %221, 0, 1\l
+             %223 = load %222\l
+             %224 = add %192, %i.1\l
+             %225 = sext %224\l
+             %226 = getelementptr %205, %225\l
+             %227 = getelementptr %226, 0, 1\l
+             %228 = load %227\l
+             %229 = fadd %223, %228\l
+             %230 = add %i.1, %k.0\l
+             %231 = sext %230\l
+             %232 = getelementptr %217, %231\l
+             %233 = getelementptr %232, 0, 1\l
+             %234 = store %229, %233\l
+             %235 = add %k.0, 1\l
+             %236 = sext %235\l
+             %237 = getelementptr %238, %236\l
+             %239 = getelementptr %237, 0, 0\l
+             %240 = load %239\l
+             %241 = sext %i.1\l
+             %242 = getelementptr %205, %241\l
+             %243 = getelementptr %242, 0, 0\l
+             %244 = load %243\l
+             %245 = add %i.1, %192\l
+             %246 = sext %245\l
+             %247 = getelementptr %205, %246\l
+             %248 = getelementptr %247, 0, 0\l
+             %249 = load %248\l
+             %250 = fsub %244, %249\l
+             %251 = fmul %240, %250\l
+             %252 = add %k.0, 1\l
+             %253 = sext %252\l
+             %254 = getelementptr %238, %253\l
+             %255 = getelementptr %254, 0, 1\l
+             %256 = load %255\l
+             %257 = sext %i.1\l
+             %258 = getelementptr %205, %257\l
+             %259 = getelementptr %258, 0, 1\l
+             %260 = load %259\l
+             %261 = add %i.1, %192\l
+             %262 = sext %261\l
+             %263 = getelementptr %205, %262\l
+             %264 = getelementptr %263, 0, 1\l
+             %265 = load %264\l
+             %266 = fsub %260, %265\l
+             %267 = fmul %256, %266\l
+             %268 = fsub %251, %267\l
+             %269 = add %i.1, %j.0\l
+             %270 = sext %269\l
+             %271 = getelementptr %217, %270\l
+             %272 = getelementptr %271, 0, 0\l
+             %273 = store %268, %272\l
+             %274 = add %k.0, 1\l
+             %275 = sext %274\l
+             %276 = getelementptr %238, %275\l
+             %277 = getelementptr %276, 0, 0\l
+             %278 = load %277\l
+             %279 = sext %i.1\l
+             %280 = getelementptr %205, %279\l
+             %281 = getelementptr %280, 0, 1\l
+             %282 = load %281\l
+             %283 = add %i.1, %192\l
+             %284 = sext %283\l
+             %285 = getelementptr %205, %284\l
+             %286 = getelementptr %285, 0, 1\l
+             %287 = load %286\l
+             %288 = fsub %282, %287\l
+             %289 = fmul %278, %288\l
+             %290 = add %k.0, 1\l
+             %291 = sext %290\l
+             %292 = getelementptr %238, %291\l
+             %293 = getelementptr %292, 0, 1\l
+             %294 = load %293\l
+             %295 = sext %i.1\l
+             %296 = getelementptr %205, %295\l
+             %297 = getelementptr %296, 0, 0\l
+             %298 = load %297\l
+             %299 = add %i.1, %192\l
+             %300 = sext %299\l
+             %301 = getelementptr %205, %300\l
+             %302 = getelementptr %301, 0, 0\l
+             %303 = load %302\l
+             %304 = fsub %298, %303\l
+             %305 = fmul %294, %304\l
+             %306 = fadd %289, %305\l
+             %307 = add %i.1, %j.0\l
+             %308 = sext %307\l
+             %309 = getelementptr %217, %308\l
+             %310 = getelementptr %309, 0, 1\l
+             %311 = store %306, %310\l
+             %198 = add %i.1, 1\l
+             br BB202\l
+             }"];
+BB201 -> BB202
+BB202 [shape=record,
+    label="{BB202:\l\l
+             %312 = icmp-sle %198, %j.0\l
+             br %312 BB201 BB313\l
+             }"];
+BB202 -> BB201
+BB202 -> BB313
+BB313 [shape=record,
+    label="{BB313:\l\l
+             %200 = add %j.0, %l.0\l
+             br BB199\l
+             }"];
+BB313 -> BB199
+BB199 [shape=record,
+    label="{BB199:\l\l
+             %314 = icmp-sle %200, %192\l
+             br %314 BB197 BB315\l
+             }"];
+BB199 -> BB197
+BB199 -> BB315
+BB315 [shape=record,
+    label="{BB315:\l\l
+             br BB316\l
+             }"];
+BB315 -> BB316
+BB316 [shape=record,
+    label="{BB316:\l\l
+             %index.0 = phi [ 1, BB315 ] , [ %317, BB318 ] \l
+             %319 = sext %index.0\l
+             %320 = getelementptr %205, %319\l
+             %321 = sext %index.0\l
+             %322 = getelementptr %217, %321\l
+             %323 = bitcast %320\l
+             %324 = bitcast %322\l
+             %325 = call @llvm.memcpy.p0i8.p0i8.i64( 0,8,%324,%323)\l
+             %317 = add %index.0, 1\l
+             br BB318\l
+             }"];
+BB316 -> BB318
+BB318 [shape=record,
+    label="{BB318:\l\l
+             %326 = icmp-sle %317, %193\l
+             br %326 BB316 BB327\l
+             }"];
+BB318 -> BB316
+BB318 -> BB327
+BB327 [shape=record,
+    label="{BB327:\l\l
+             %195 = add %l.0, %l.0\l
+             br BB196\l
+             }"];
+BB327 -> BB196
+BB196 [shape=record,
+    label="{BB196:\l\l
+             %328 = icmp-sle %195, %192\l
+             br %328 BB194 BB329\l
+             }"];
+BB196 -> BB194
+BB196 -> BB329
+BB329 [shape=record,
+    label="{BB329:\l\l
+             br BB330\l
+             }"];
+BB329 -> BB330
+BB330 [shape=record,
+    label="{BB330:\l\l
+             %i.2 = phi [ 1, BB329 ] , [ %331, BB332 ] \l
+             %333 = icmp-sle %i.2, %193\l
+             br %333 BB334 BB335\l
+             }"];
+BB330 -> BB334
+BB330 -> BB335
+BB334 [shape=record,
+    label="{BB334:\l\l
+             %336 = sext %i.2\l
+             %337 = getelementptr %205, %336\l
+             %338 = getelementptr %337, 0, 0\l
+             %339 = load %338\l
+             %340 = fmul %341, %339\l
+             %342 = sext %i.2\l
+             %343 = getelementptr %205, %342\l
+             %344 = getelementptr %343, 0, 0\l
+             %345 = store %340, %344\l
+             %346 = fsub -0.000000, %341\l
+             %347 = sext %i.2\l
+             %348 = getelementptr %205, %347\l
+             %349 = getelementptr %348, 0, 1\l
+             %350 = load %349\l
+             %351 = fmul %346, %350\l
+             %352 = sext %i.2\l
+             %353 = getelementptr %205, %352\l
+             %354 = getelementptr %353, 0, 1\l
+             %355 = store %351, %354\l
+             br BB332\l
+             }"];
+BB334 -> BB332
+BB332 [shape=record,
+    label="{BB332:\l\l
+             %331 = add %i.2, 1\l
+             br BB330\l
+             }"];
+BB332 -> BB330
+BB335 [shape=record,
+    label="{BB335:\l\l
+             ret\l
+             }"];
+}

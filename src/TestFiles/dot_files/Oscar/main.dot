@@ -1,0 +1,31 @@
+digraph "CFG for 'main' function" {
+BB399 [shape=record,
+    label="{BB399:\l\l
+             br BB400\l
+             }"];
+BB399 -> BB400
+BB400 [shape=record,
+    label="{BB400:\l\l
+             %i.0 = phi [ 0, BB399 ] , [ %401, BB402 ] \l
+             %403 = icmp-slt %i.0, 10\l
+             br %403 BB404 BB405\l
+             }"];
+BB400 -> BB404
+BB400 -> BB405
+BB404 [shape=record,
+    label="{BB404:\l\l
+             %406 = call @Oscar()\l
+             br BB402\l
+             }"];
+BB404 -> BB402
+BB402 [shape=record,
+    label="{BB402:\l\l
+             %401 = add %i.0, 1\l
+             br BB400\l
+             }"];
+BB402 -> BB400
+BB405 [shape=record,
+    label="{BB405:\l\l
+             ret 0\l
+             }"];
+}

@@ -1,0 +1,7 @@
+digraph "CFG for 'Initrand' function" {
+BB0 [shape=record,
+    label="{BB0:\l\l
+             %1 = store 74755, seed\l
+             ret\l
+             }"];
+}

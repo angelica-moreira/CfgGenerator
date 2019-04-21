@@ -1,0 +1,34 @@
+digraph "CFG for 'Initialize' function" {
+BB17 [shape=record,
+    label="{BB17:\l\l
+             br BB18\l
+             }"];
+BB17 -> BB18
+BB18 [shape=record,
+    label="{BB18:\l\l
+             %i.0 = phi [ 1, BB17 ] , [ %19, BB20 ] \l
+             %21 = icmp-sle %i.0, 7\l
+             br %21 BB22 BB23\l
+             }"];
+BB18 -> BB22
+BB18 -> BB23
+BB22 [shape=record,
+    label="{BB22:\l\l
+             %24 = sub %i.0, 1\l
+             %25 = sext %i.0\l
+             %26 = getelementptr permarray, 0, %25\l
+             %27 = store %24, %26\l
+             br BB20\l
+             }"];
+BB22 -> BB20
+BB20 [shape=record,
+    label="{BB20:\l\l
+             %19 = add %i.0, 1\l
+             br BB18\l
+             }"];
+BB20 -> BB18
+BB23 [shape=record,
+    label="{BB23:\l\l
+             ret\l
+             }"];
+}

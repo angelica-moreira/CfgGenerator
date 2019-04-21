@@ -1,0 +1,45 @@
+digraph "CFG for 'Innerproduct' function" {
+BB34 [shape=record,
+    label="{BB34:\l\l
+             %35 = store 0, %36\l
+             br BB37\l
+             }"];
+BB34 -> BB37
+BB37 [shape=record,
+    label="{BB37:\l\l
+             %i.0 = phi [ 1, BB34 ] , [ %38, BB39 ] \l
+             %40 = icmp-sle %i.0, 40\l
+             br %40 BB41 BB42\l
+             }"];
+BB37 -> BB41
+BB37 -> BB42
+BB41 [shape=record,
+    label="{BB41:\l\l
+             %43 = load %36\l
+             %44 = sext %45\l
+             %46 = getelementptr %47, %44\l
+             %48 = sext %i.0\l
+             %49 = getelementptr %46, 0, %48\l
+             %50 = load %49\l
+             %51 = sext %i.0\l
+             %52 = getelementptr %53, %51\l
+             %54 = sext %55\l
+             %56 = getelementptr %52, 0, %54\l
+             %57 = load %56\l
+             %58 = mul %50, %57\l
+             %59 = add %43, %58\l
+             %60 = store %59, %36\l
+             br BB39\l
+             }"];
+BB41 -> BB39
+BB39 [shape=record,
+    label="{BB39:\l\l
+             %38 = add %i.0, 1\l
+             br BB37\l
+             }"];
+BB39 -> BB37
+BB42 [shape=record,
+    label="{BB42:\l\l
+             ret\l
+             }"];
+}

@@ -1,0 +1,72 @@
+digraph "CFG for 'Fit' function" {
+BB10 [shape=record,
+    label="{BB10:\l\l
+             br BB11\l
+             }"];
+BB10 -> BB11
+BB11 [shape=record,
+    label="{BB11:\l\l
+             %k.0 = phi [ 0, BB10 ] , [ %12, BB13 ] \l
+             %14 = sext %15\l
+             %16 = getelementptr piecemax, 0, %14\l
+             %17 = load %16\l
+             %18 = icmp-sle %k.0, %17\l
+             br %18 BB19 BB20\l
+             }"];
+BB11 -> BB19
+BB11 -> BB20
+BB19 [shape=record,
+    label="{BB19:\l\l
+             %21 = sext %15\l
+             %22 = getelementptr p, 0, %21\l
+             %23 = sext %k.0\l
+             %24 = getelementptr %22, 0, %23\l
+             %25 = load %24\l
+             %26 = icmp-ne %25, 0\l
+             br %26 BB27 BB28\l
+             }"];
+BB19 -> BB27
+BB19 -> BB28
+BB27 [shape=record,
+    label="{BB27:\l\l
+             %29 = add %30, %k.0\l
+             %31 = sext %29\l
+             %32 = getelementptr puzzl, 0, %31\l
+             %33 = load %32\l
+             %34 = icmp-ne %33, 0\l
+             br %34 BB35 BB36\l
+             }"];
+BB27 -> BB35
+BB27 -> BB36
+BB35 [shape=record,
+    label="{BB35:\l\l
+             br BB37\l
+             }"];
+BB35 -> BB37
+BB36 [shape=record,
+    label="{BB36:\l\l
+             br BB28\l
+             }"];
+BB36 -> BB28
+BB28 [shape=record,
+    label="{BB28:\l\l
+             br BB13\l
+             }"];
+BB28 -> BB13
+BB13 [shape=record,
+    label="{BB13:\l\l
+             %12 = add %k.0, 1\l
+             br BB11\l
+             }"];
+BB13 -> BB11
+BB20 [shape=record,
+    label="{BB20:\l\l
+             br BB37\l
+             }"];
+BB20 -> BB37
+BB37 [shape=record,
+    label="{BB37:\l\l
+             %retval.0 = phi [ 0, BB35 ] , [ 1, BB20 ] \l
+             ret retval.0\l
+             }"];
+}

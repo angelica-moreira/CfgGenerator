@@ -1,0 +1,70 @@
+digraph "CFG for 'Intmm' function" {
+BB61 [shape=record,
+    label="{BB61:\l\l
+             %62 = call @Initrand()\l
+             %63 = call @Initmatrix()\l
+             %64 = call @Initmatrix()\l
+             br BB65\l
+             }"];
+BB61 -> BB65
+BB65 [shape=record,
+    label="{BB65:\l\l
+             %i.0 = phi [ 1, BB61 ] , [ %66, BB67 ] \l
+             %68 = icmp-sle %i.0, 40\l
+             br %68 BB69 BB70\l
+             }"];
+BB65 -> BB69
+BB65 -> BB70
+BB69 [shape=record,
+    label="{BB69:\l\l
+             br BB71\l
+             }"];
+BB69 -> BB71
+BB71 [shape=record,
+    label="{BB71:\l\l
+             %j.0 = phi [ 1, BB69 ] , [ %72, BB73 ] \l
+             %74 = icmp-sle %j.0, 40\l
+             br %74 BB75 BB76\l
+             }"];
+BB71 -> BB75
+BB71 -> BB76
+BB75 [shape=record,
+    label="{BB75:\l\l
+             %77 = sext %i.0\l
+             %78 = getelementptr imr, 0, %77\l
+             %79 = sext %j.0\l
+             %80 = getelementptr %78, 0, %79\l
+             %81 = call @Innerproduct( %j.0,%i.0)\l
+             br BB73\l
+             }"];
+BB75 -> BB73
+BB73 [shape=record,
+    label="{BB73:\l\l
+             %72 = add %j.0, 1\l
+             br BB71\l
+             }"];
+BB73 -> BB71
+BB76 [shape=record,
+    label="{BB76:\l\l
+             br BB67\l
+             }"];
+BB76 -> BB67
+BB67 [shape=record,
+    label="{BB67:\l\l
+             %66 = add %i.0, 1\l
+             br BB65\l
+             }"];
+BB67 -> BB65
+BB70 [shape=record,
+    label="{BB70:\l\l
+             %82 = add %83, 1\l
+             %84 = sext %82\l
+             %85 = getelementptr imr, 0, %84\l
+             %86 = add %83, 1\l
+             %87 = sext %86\l
+             %88 = getelementptr %85, 0, %87\l
+             %89 = load %88\l
+             %90 = call @printf( %89)\l
+             ret\l
+             }"];
+}

@@ -1,0 +1,88 @@
+digraph "CFG for 'bInitarr' function" {
+BB10 [shape=record,
+    label="{BB10:\l\l
+             %11 = call @Initrand()\l
+             %12 = store 0, biggest\l
+             %13 = store 0, littlest\l
+             br BB14\l
+             }"];
+BB10 -> BB14
+BB14 [shape=record,
+    label="{BB14:\l\l
+             %i.0 = phi [ 1, BB10 ] , [ %15, BB16 ] \l
+             %17 = icmp-sle %i.0, 500\l
+             br %17 BB18 BB19\l
+             }"];
+BB14 -> BB18
+BB14 -> BB19
+BB18 [shape=record,
+    label="{BB18:\l\l
+             %20 = call @Rand()\l
+             %21 = sext %20\l
+             %22 = sdiv %21, 100000\l
+             %23 = mul %22, 100000\l
+             %24 = sub %21, %23\l
+             %25 = sub %24, 50000\l
+             %26 = trunc %25\l
+             %27 = sext %i.0\l
+             %28 = getelementptr sortlist, 0, %27\l
+             %29 = store %26, %28\l
+             %30 = sext %i.0\l
+             %31 = getelementptr sortlist, 0, %30\l
+             %32 = load %31\l
+             %33 = load biggest\l
+             %34 = icmp-sgt %32, %33\l
+             br %34 BB35 BB36\l
+             }"];
+BB18 -> BB35
+BB18 -> BB36
+BB35 [shape=record,
+    label="{BB35:\l\l
+             %37 = sext %i.0\l
+             %38 = getelementptr sortlist, 0, %37\l
+             %39 = load %38\l
+             %40 = store %39, biggest\l
+             br BB41\l
+             }"];
+BB35 -> BB41
+BB36 [shape=record,
+    label="{BB36:\l\l
+             %42 = sext %i.0\l
+             %43 = getelementptr sortlist, 0, %42\l
+             %44 = load %43\l
+             %45 = load littlest\l
+             %46 = icmp-slt %44, %45\l
+             br %46 BB47 BB48\l
+             }"];
+BB36 -> BB47
+BB36 -> BB48
+BB47 [shape=record,
+    label="{BB47:\l\l
+             %49 = sext %i.0\l
+             %50 = getelementptr sortlist, 0, %49\l
+             %51 = load %50\l
+             %52 = store %51, littlest\l
+             br BB48\l
+             }"];
+BB47 -> BB48
+BB48 [shape=record,
+    label="{BB48:\l\l
+             br BB41\l
+             }"];
+BB48 -> BB41
+BB41 [shape=record,
+    label="{BB41:\l\l
+             br BB16\l
+             }"];
+BB41 -> BB16
+BB16 [shape=record,
+    label="{BB16:\l\l
+             %15 = add %i.0, 1\l
+             br BB14\l
+             }"];
+BB16 -> BB14
+BB19 [shape=record,
+    label="{BB19:\l\l
+             ret\l
+             }"];
+}

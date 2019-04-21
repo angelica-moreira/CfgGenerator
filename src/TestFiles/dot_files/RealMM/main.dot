@@ -1,0 +1,31 @@
+digraph "CFG for 'main' function" {
+BB93 [shape=record,
+    label="{BB93:\l\l
+             br BB94\l
+             }"];
+BB93 -> BB94
+BB94 [shape=record,
+    label="{BB94:\l\l
+             %i.0 = phi [ 0, BB93 ] , [ %95, BB96 ] \l
+             %97 = icmp-slt %i.0, 10\l
+             br %97 BB98 BB99\l
+             }"];
+BB94 -> BB98
+BB94 -> BB99
+BB98 [shape=record,
+    label="{BB98:\l\l
+             %100 = call @Mm( %i.0)\l
+             br BB96\l
+             }"];
+BB98 -> BB96
+BB96 [shape=record,
+    label="{BB96:\l\l
+             %95 = add %i.0, 1\l
+             br BB94\l
+             }"];
+BB96 -> BB94
+BB99 [shape=record,
+    label="{BB99:\l\l
+             ret 0\l
+             }"];
+}

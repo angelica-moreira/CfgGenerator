@@ -1,0 +1,37 @@
+digraph "CFG for 'Quick' function" {
+BB107 [shape=record,
+    label="{BB107:\l\l
+             %108 = call @Initarr()\l
+             %109 = call @Quicksort( 5000,1)\l
+             %110 = loa\l
+             %111 = load littlest\l
+             %112 = icmp-ne %110, %111\l
+             br %112 BB113 BB114\l
+             }"];
+BB107 -> BB113
+BB107 -> BB114
+BB114 [shape=record,
+    label="{BB114:\l\l
+             %115 = loa\l
+             %116 = load biggest\l
+             %117 = icmp-ne %115, %116\l
+             br %117 BB113 BB118\l
+             }"];
+BB114 -> BB113
+BB114 -> BB118
+BB113 [shape=record,
+    label="{BB113:\l\l
+             %119 = call @printf()\l
+             br BB118\l
+             }"];
+BB113 -> BB118
+BB118 [shape=record,
+    label="{BB118:\l\l
+             %120 = add %121, 1\l
+             %122 = sext %120\l
+             %123 = getelementptr sortlist, 0, %122\l
+             %124 = load %123\l
+             %125 = call @printf( %124)\l
+             ret\l
+             }"];
+}

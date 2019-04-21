@@ -1,0 +1,112 @@
+digraph "CFG for 'Place' function" {
+BB38 [shape=record,
+    label="{BB38:\l\l
+             br BB39\l
+             }"];
+BB38 -> BB39
+BB39 [shape=record,
+    label="{BB39:\l\l
+             %k.0 = phi [ 0, BB38 ] , [ %40, BB41 ] \l
+             %42 = sext %43\l
+             %44 = getelementptr piecemax, 0, %42\l
+             %45 = load %44\l
+             %46 = icmp-sle %k.0, %45\l
+             br %46 BB47 BB48\l
+             }"];
+BB39 -> BB47
+BB39 -> BB48
+BB47 [shape=record,
+    label="{BB47:\l\l
+             %49 = sext %43\l
+             %50 = getelementptr p, 0, %49\l
+             %51 = sext %k.0\l
+             %52 = getelementptr %50, 0, %51\l
+             %53 = load %52\l
+             %54 = icmp-ne %53, 0\l
+             br %54 BB55 BB56\l
+             }"];
+BB47 -> BB55
+BB47 -> BB56
+BB55 [shape=record,
+    label="{BB55:\l\l
+             %57 = add %58, %k.0\l
+             %59 = sext %57\l
+             %60 = getelementptr puzzl, 0, %59\l
+             %61 = store 1, %60\l
+             br BB56\l
+             }"];
+BB55 -> BB56
+BB56 [shape=record,
+    label="{BB56:\l\l
+             br BB41\l
+             }"];
+BB56 -> BB41
+BB41 [shape=record,
+    label="{BB41:\l\l
+             %40 = add %k.0, 1\l
+             br BB39\l
+             }"];
+BB41 -> BB39
+BB48 [shape=record,
+    label="{BB48:\l\l
+             %62 = sext %43\l
+             %63 = getelementptr class, 0, %62\l
+             %64 = load %63\l
+             %65 = sext %64\l
+             %66 = getelementptr piececount, 0, %65\l
+             %67 = load %66\l
+             %68 = sub %67, 1\l
+             %69 = sext %43\l
+             %70 = getelementptr class, 0, %69\l
+             %71 = load %70\l
+             %72 = sext %71\l
+             %73 = getelementptr piececount, 0, %72\l
+             %74 = store %68, %73\l
+             br BB75\l
+             }"];
+BB48 -> BB75
+BB75 [shape=record,
+    label="{BB75:\l\l
+             %k.1 = phi [ %58, BB48 ] , [ %76, BB77 ] \l
+             %78 = icmp-sle %k.1, 511\l
+             br %78 BB79 BB80\l
+             }"];
+BB75 -> BB79
+BB75 -> BB80
+BB79 [shape=record,
+    label="{BB79:\l\l
+             %81 = sext %k.1\l
+             %82 = getelementptr puzzl, 0, %81\l
+             %83 = load %82\l
+             %84 = icmp-ne %83, 0\l
+             br %84 BB85 BB86\l
+             }"];
+BB79 -> BB85
+BB79 -> BB86
+BB86 [shape=record,
+    label="{BB86:\l\l
+             br BB87\l
+             }"];
+BB86 -> BB87
+BB85 [shape=record,
+    label="{BB85:\l\l
+             br BB77\l
+             }"];
+BB85 -> BB77
+BB77 [shape=record,
+    label="{BB77:\l\l
+             %76 = add %k.1, 1\l
+             br BB75\l
+             }"];
+BB77 -> BB75
+BB80 [shape=record,
+    label="{BB80:\l\l
+             br BB87\l
+             }"];
+BB80 -> BB87
+BB87 [shape=record,
+    label="{BB87:\l\l
+             %retval.0 = phi [ %k.1, BB86 ] , [ 0, BB80 ] \l
+             ret retval.0\l
+             }"];
+}

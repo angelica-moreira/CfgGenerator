@@ -153,7 +153,7 @@ string CfgGenerator::returnInstToString(ReturnInst *returnInst)
     }
     else
     {
-      strReturn.append(operandValue->getName()); //pensar em outras formas de retorno
+      strReturn.append(operandValue->getName());
     }
   }
 
@@ -168,7 +168,7 @@ string CfgGenerator::callInstToString(CallInst *callInst)
 
   Function *fun = callInst->getCalledFunction();
   strCall.append(generateLabel(fun, FUNCTION_PREFIX));
-  strCall.append("(");
+  strCall.append("( ");
 
   int numOps = callInst->getNumOperands();
   for (int idx = numOps - 2; idx >= 0; idx--)
@@ -213,7 +213,6 @@ string CfgGenerator::generalInstToString(Instruction &inst)
   for (int idx = 0; idx < numOps; idx++)
   {
     Value *operandValue = inst.getOperand(idx);
-    //errs() << " Operando: " << *operandValue << " **\n";
     if (Constant *constValue = dyn_cast<Constant>(operandValue))
     {
       string strConst = getConstantValue(constValue);
@@ -241,7 +240,6 @@ void CfgGenerator::generateCfgDotFile(Function &function)
   bool changed = false;
   string functionName = function.getName();
   string fileName = functionName + ".dot";
-  //errs() << "Function Name: " << functionName << "\n";
   ofstream cfgFile(fileName);
 
   if (cfgFile.is_open())
@@ -251,9 +249,6 @@ void CfgGenerator::generateCfgDotFile(Function &function)
     {
       string basicBlockName = basicBlock.getName();
       string basicBlockLabel = generateLabel(&basicBlock, BASIC_BLOCK_PREFIX);
-
-      //errs() << "************** BasicBlock Label Name: " << basicBlockLabel << " ***********\n";
-      //errs() << "BasicBlock Name: " << basicBlockName << "\n";
 
       cfgFile << basicBlockLabel << " [shape=record,\n";
       cfgFile << "    label=\"{" << basicBlockLabel << ":\\l\\l\n";
@@ -285,10 +280,6 @@ void CfgGenerator::generateCfgDotFile(Function &function)
         }
         else
         {
-         // errs() << " ** Instruction being current analized: " << instruction << " **\n";
-         // errs() << "Name of the Instruction: " << instruction.getName() << "\n";
-         // errs() << "Opcode of the Instruction " << instruction.getOpcodeName() << "\n";
-
           string strInst = generalInstToString(instruction);
           cfgFile << "             " << strInst << "\\l\n";
         }
@@ -300,8 +291,6 @@ void CfgGenerator::generateCfgDotFile(Function &function)
         cfgFile << successorsList.front() << "\n";
         successorsList.pop_front();
       }
-
-     // errs() << "\n\n";
     }
     cfgFile << "}";
     cfgFile.close();

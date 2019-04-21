@@ -1,0 +1,84 @@
+digraph "CFG for 'Oscar' function" {
+BB356 [shape=record,
+    label="{BB356:\l\l
+             %357 = alloca 1\l
+             %358 = call @Exptab( 256)\l
+             %359 = store 5767, seed\l
+             br BB360\l
+             }"];
+BB356 -> BB360
+BB360 [shape=record,
+    label="{BB360:\l\l
+             %i.0 = phi [ 1, BB356 ] , [ %361, BB362 ] \l
+             %363 = icmp-sle %i.0, 256\l
+             br %363 BB364 BB365\l
+             }"];
+BB360 -> BB364
+BB360 -> BB365
+BB364 [shape=record,
+    label="{BB364:\l\l
+             %366 = load seed\l
+             %367 = trunc %366\l
+             %368 = store %367, %357\l
+             %369 = call @Uniform11( zr,%357)\l
+             %370 = load %357\l
+             %371 = sext %370\l
+             %372 = store %371, seed\l
+             %373 = call @Uniform11( zi,%357)\l
+             %374 = load %357\l
+             %375 = sext %374\l
+             %376 = store %375, seed\l
+             %377 = load zr\l
+             %378 = fmul 20.000000, %377\l
+             %379 = fsub %378, 10.000000\l
+             %380 = sext %i.0\l
+             %381 = getelementptr z, 0, %380\l
+             %382 = getelementptr %381, 0, 0\l
+             %383 = store %379, %382\l
+             %384 = load zi\l
+             %385 = fmul 20.000000, %384\l
+             %386 = fsub %385, 10.000000\l
+             %387 = sext %i.0\l
+             %388 = getelementptr z, 0, %387\l
+             %389 = getelementptr %388, 0, 1\l
+             %390 = store %386, %389\l
+             br BB362\l
+             }"];
+BB364 -> BB362
+BB362 [shape=record,
+    label="{BB362:\l\l
+             %361 = add %i.0, 1\l
+             br BB360\l
+             }"];
+BB362 -> BB360
+BB365 [shape=record,
+    label="{BB365:\l\l
+             br BB391\l
+             }"];
+BB365 -> BB391
+BB391 [shape=record,
+    label="{BB391:\l\l
+             %i.1 = phi [ 1, BB365 ] , [ %392, BB393 ] \l
+             %394 = icmp-sle %i.1, 20\l
+             br %394 BB395 BB396\l
+             }"];
+BB391 -> BB395
+BB391 -> BB396
+BB395 [shape=record,
+    label="{BB395:\l\l
+             %397 = call @Fft( 0.062500,256)\l
+             br BB393\l
+             }"];
+BB395 -> BB393
+BB393 [shape=record,
+    label="{BB393:\l\l
+             %392 = add %i.1, 1\l
+             br BB391\l
+             }"];
+BB393 -> BB391
+BB396 [shape=record,
+    label="{BB396:\l\l
+             %398 = call @Printcomplex( 17,256,1)\l
+             ret\l
+             }"];
+}

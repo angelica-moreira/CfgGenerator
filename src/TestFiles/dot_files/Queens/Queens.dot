@@ -1,0 +1,33 @@
+digraph "CFG for 'Queens' function" {
+BB127 [shape=record,
+    label="{BB127:\l\l
+             br BB128\l
+             }"];
+BB127 -> BB128
+BB128 [shape=record,
+    label="{BB128:\l\l
+             %i.0 = phi [ 1, BB127 ] , [ %129, BB130 ] \l
+             %131 = icmp-sle %i.0, 50\l
+             br %131 BB132 BB133\l
+             }"];
+BB128 -> BB132
+BB128 -> BB133
+BB132 [shape=record,
+    label="{BB132:\l\l
+             %134 = call @Doit()\l
+             br BB130\l
+             }"];
+BB132 -> BB130
+BB130 [shape=record,
+    label="{BB130:\l\l
+             %129 = add %i.0, 1\l
+             br BB128\l
+             }"];
+BB130 -> BB128
+BB133 [shape=record,
+    label="{BB133:\l\l
+             %135 = add %136, 1\l
+             %137 = call @printf( %135)\l
+             ret\l
+             }"];
+}

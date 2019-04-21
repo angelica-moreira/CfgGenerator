@@ -1,0 +1,7 @@
+digraph "CFG for 'Error' function" {
+BB10 [shape=record,
+    label="{BB10:\l\l
+             %11 = call @printf( %12)\l
+             ret\l
+             }"];
+}

@@ -1,0 +1,69 @@
+digraph "CFG for 'Trees' function" {
+BB152 [shape=record,
+    label="{BB152:\l\l
+             %153 = call @tInitarr()\l
+             %154 = call @malloc( 24)\l
+             %155 = bitcast %154\l
+             %156 = store %155, tree\l
+             %157 = load tree\l
+             %158 = getelementptr %157, 0, 0\l
+             %159 = store %158\l
+             %160 = load tree\l
+             %161 = getelementptr %160, 0, 1\l
+             %162 = store %161\l
+             %163 = loa\l
+             %164 = load tree\l
+             %165 = getelementptr %164, 0, 2\l
+             %166 = store %163, %165\l
+             br BB167\l
+             }"];
+BB152 -> BB167
+BB167 [shape=record,
+    label="{BB167:\l\l
+             %i.0 = phi [ 2, BB152 ] , [ %168, BB169 ] \l
+             %170 = icmp-sle %i.0, 5000\l
+             br %170 BB171 BB172\l
+             }"];
+BB167 -> BB171
+BB167 -> BB172
+BB171 [shape=record,
+    label="{BB171:\l\l
+             %173 = sext %i.0\l
+             %174 = getelementptr sortlist, 0, %173\l
+             %175 = load %174\l
+             %176 = load tree\l
+             %177 = call @Insert( %176,%175)\l
+             br BB169\l
+             }"];
+BB171 -> BB169
+BB169 [shape=record,
+    label="{BB169:\l\l
+             %168 = add %i.0, 1\l
+             br BB167\l
+             }"];
+BB169 -> BB167
+BB172 [shape=record,
+    label="{BB172:\l\l
+             %178 = add 2, %179\l
+             %180 = sext %178\l
+             %181 = getelementptr sortlist, 0, %180\l
+             %182 = load %181\l
+             %183 = call @printf( %182)\l
+             %184 = load tree\l
+             %185 = call @Checktree( %184)\l
+             %186 = icmp-ne %185, 0\l
+             br %186 BB187 BB188\l
+             }"];
+BB172 -> BB187
+BB172 -> BB188
+BB188 [shape=record,
+    label="{BB188:\l\l
+             %189 = call @printf()\l
+             br BB187\l
+             }"];
+BB188 -> BB187
+BB187 [shape=record,
+    label="{BB187:\l\l
+             ret\l
+             }"];
+}

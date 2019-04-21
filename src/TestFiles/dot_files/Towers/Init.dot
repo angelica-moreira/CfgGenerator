@@ -1,0 +1,32 @@
+digraph "CFG for 'Init' function" {
+BB70 [shape=record,
+    label="{BB70:\l\l
+             %71 = call @Makenull( %72)\l
+             br BB73\l
+             }"];
+BB70 -> BB73
+BB73 [shape=record,
+    label="{BB73:\l\l
+             %discctr.0 = phi [ %74, BB70 ] , [ %75, BB76 ] \l
+             %77 = icmp-sge %discctr.0, 1\l
+             br %77 BB78 BB79\l
+             }"];
+BB73 -> BB78
+BB73 -> BB79
+BB78 [shape=record,
+    label="{BB78:\l\l
+             %80 = call @Push( %72,%discctr.0)\l
+             br BB76\l
+             }"];
+BB78 -> BB76
+BB76 [shape=record,
+    label="{BB76:\l\l
+             %75 = add %discctr.0, -1\l
+             br BB73\l
+             }"];
+BB76 -> BB73
+BB79 [shape=record,
+    label="{BB79:\l\l
+             ret\l
+             }"];
+}

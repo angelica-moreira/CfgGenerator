@@ -1,0 +1,74 @@
+digraph "CFG for 'Cos' function" {
+BB10 [shape=record,
+    label="{BB10:\l\l
+             br BB11\l
+             }"];
+BB10 -> BB11
+BB11 [shape=record,
+    label="{BB11:\l\l
+             %result.0 = phi [ 1.000000, BB10 ] , [ %result.2, BB12 ] \l
+             %factor.0 = phi [ 1, BB10 ] , [ %13, BB12 ] \l
+             %i.0 = phi [ 2, BB10 ] , [ %14, BB12 ] \l
+             %power.0 = phi [ %15, BB10 ] , [ %16, BB12 ] \l
+             %17 = icmp-sle %i.0, 10\l
+             br %17 BB18 BB19\l
+             }"];
+BB11 -> BB18
+BB11 -> BB19
+BB18 [shape=record,
+    label="{BB18:\l\l
+             %13 = mul %factor.0, %i.0\l
+             %16 = fmul %power.0, %15\l
+             %20 = and %i.0, 1\l
+             %21 = icmp-eq %20, 0\l
+             br %21 BB22 BB23\l
+             }"];
+BB18 -> BB22
+BB18 -> BB23
+BB22 [shape=record,
+    label="{BB22:\l\l
+             %24 = and %i.0, 3\l
+             %25 = icmp-eq %24, 0\l
+             br %25 BB26 BB27\l
+             }"];
+BB22 -> BB26
+BB22 -> BB27
+BB26 [shape=record,
+    label="{BB26:\l\l
+             %28 = sitofp %13\l
+             %29 = fdiv %16, %28\l
+             %30 = fadd %result.0, %29\l
+             br BB31\l
+             }"];
+BB26 -> BB31
+BB27 [shape=record,
+    label="{BB27:\l\l
+             %32 = sitofp %13\l
+             %33 = fdiv %16, %32\l
+             %34 = fsub %result.0, %33\l
+             br BB31\l
+             }"];
+BB27 -> BB31
+BB31 [shape=record,
+    label="{BB31:\l\l
+             %result.1 = phi [ %30, BB26 ] , [ %34, BB27 ] \l
+             br BB23\l
+             }"];
+BB31 -> BB23
+BB23 [shape=record,
+    label="{BB23:\l\l
+             %result.2 = phi [ %result.1, BB31 ] , [ %result.0, BB18 ] \l
+             br BB12\l
+             }"];
+BB23 -> BB12
+BB12 [shape=record,
+    label="{BB12:\l\l
+             %14 = add %i.0, 1\l
+             br BB11\l
+             }"];
+BB12 -> BB11
+BB19 [shape=record,
+    label="{BB19:\l\l
+             ret result.0\l
+             }"];
+}

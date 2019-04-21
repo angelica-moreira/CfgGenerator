@@ -1,0 +1,57 @@
+digraph "CFG for 'Towers' function" {
+BB145 [shape=record,
+    label="{BB145:\l\l
+             br BB146\l
+             }"];
+BB145 -> BB146
+BB146 [shape=record,
+    label="{BB146:\l\l
+             %i.0 = phi [ 1, BB145 ] , [ %147, BB148 ] \l
+             %149 = icmp-sle %i.0, 18\l
+             br %149 BB150 BB151\l
+             }"];
+BB146 -> BB150
+BB146 -> BB151
+BB150 [shape=record,
+    label="{BB150:\l\l
+             %152 = sub %i.0, 1\l
+             %153 = sext %i.0\l
+             %154 = getelementptr cellspace, 0, %153\l
+             %155 = getelementptr %154, 0, 1\l
+             %156 = store %152, %155\l
+             br BB148\l
+             }"];
+BB150 -> BB148
+BB148 [shape=record,
+    label="{BB148:\l\l
+             %147 = add %i.0, 1\l
+             br BB146\l
+             }"];
+BB148 -> BB146
+BB151 [shape=record,
+    label="{BB151:\l\l
+             %157 = store 18, freelist\l
+             %158 = call @Init( 14,1)\l
+             %159 = call @Makenull( 2)\l
+             %160 = call @Makenull( 3)\l
+             %161 = store 0, movesdone\l
+             %162 = call @tower( 14,2,1)\l
+             %163 = load movesdone\l
+             %164 = icmp-ne %163, 16383\l
+             br %164 BB165 BB166\l
+             }"];
+BB151 -> BB165
+BB151 -> BB166
+BB165 [shape=record,
+    label="{BB165:\l\l
+             %167 = call @printf()\l
+             br BB166\l
+             }"];
+BB165 -> BB166
+BB166 [shape=record,
+    label="{BB166:\l\l
+             %168 = load movesdone\l
+             %169 = call @printf( %168)\l
+             ret\l
+             }"];
+}

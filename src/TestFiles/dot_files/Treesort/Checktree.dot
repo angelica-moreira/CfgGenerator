@@ -1,0 +1,120 @@
+digraph "CFG for 'Checktree' function" {
+BB104 [shape=record,
+    label="{BB104:\l\l
+             %105 = getelementptr %106, 0, 0\l
+             %107 = load %105\l
+             %108 = icmp-ne %107\l
+             br %108 BB109 BB110\l
+             }"];
+BB104 -> BB109
+BB104 -> BB110
+BB109 [shape=record,
+    label="{BB109:\l\l
+             %111 = getelementptr %106, 0, 0\l
+             %112 = load %111\l
+             %113 = getelementptr %112, 0, 2\l
+             %114 = load %113\l
+             %115 = getelementptr %106, 0, 2\l
+             %116 = load %115\l
+             %117 = icmp-sle %114, %116\l
+             br %117 BB118 BB119\l
+             }"];
+BB109 -> BB118
+BB109 -> BB119
+BB118 [shape=record,
+    label="{BB118:\l\l
+             br BB120\l
+             }"];
+BB118 -> BB120
+BB119 [shape=record,
+    label="{BB119:\l\l
+             %121 = getelementptr %106, 0, 0\l
+             %122 = load %121\l
+             %123 = call @Checktree( %122)\l
+             %124 = icmp-ne %123, 0\l
+             br %124 BB125 BB126\l
+             }"];
+BB119 -> BB125
+BB119 -> BB126
+BB125 [shape=record,
+    label="{BB125:\l\l
+             %127 = icmp-ne 1, 0\l
+             br BB126\l
+             }"];
+BB125 -> BB126
+BB126 [shape=record,
+    label="{BB126:\l\l
+             % = phi [ 0, BB119 ] , [ %127, BB125 ] \l
+             %128 = zext %\l
+             br BB120\l
+             }"];
+BB126 -> BB120
+BB120 [shape=record,
+    label="{BB120:\l\l
+             %result.0 = phi [ 0, BB118 ] , [ %128, BB126 ] \l
+             br BB110\l
+             }"];
+BB120 -> BB110
+BB110 [shape=record,
+    label="{BB110:\l\l
+             %result.1 = phi [ %result.0, BB120 ] , [ 1, BB104 ] \l
+             %129 = getelementptr %106, 0, 1\l
+             %130 = load %129\l
+             %131 = icmp-ne %130\l
+             br %131 BB132 BB133\l
+             }"];
+BB110 -> BB132
+BB110 -> BB133
+BB132 [shape=record,
+    label="{BB132:\l\l
+             %134 = getelementptr %106, 0, 1\l
+             %135 = load %134\l
+             %136 = getelementptr %135, 0, 2\l
+             %137 = load %136\l
+             %138 = getelementptr %106, 0, 2\l
+             %139 = load %138\l
+             %140 = icmp-sge %137, %139\l
+             br %140 BB141 BB142\l
+             }"];
+BB132 -> BB141
+BB132 -> BB142
+BB141 [shape=record,
+    label="{BB141:\l\l
+             br BB143\l
+             }"];
+BB141 -> BB143
+BB142 [shape=record,
+    label="{BB142:\l\l
+             %144 = getelementptr %106, 0, 1\l
+             %145 = load %144\l
+             %146 = call @Checktree( %145)\l
+             %147 = icmp-ne %146, 0\l
+             br %147 BB148 BB149\l
+             }"];
+BB142 -> BB148
+BB142 -> BB149
+BB148 [shape=record,
+    label="{BB148:\l\l
+             %150 = icmp-ne %result.1, 0\l
+             br BB149\l
+             }"];
+BB148 -> BB149
+BB149 [shape=record,
+    label="{BB149:\l\l
+             % = phi [ 0, BB142 ] , [ %150, BB148 ] \l
+             %151 = zext %\l
+             br BB143\l
+             }"];
+BB149 -> BB143
+BB143 [shape=record,
+    label="{BB143:\l\l
+             %result.2 = phi [ 0, BB141 ] , [ %151, BB149 ] \l
+             br BB133\l
+             }"];
+BB143 -> BB133
+BB133 [shape=record,
+    label="{BB133:\l\l
+             %result.3 = phi [ %result.2, BB143 ] , [ %result.1, BB110 ] \l
+             ret result.3\l
+             }"];
+}

@@ -1,0 +1,24 @@
+digraph "CFG for 'Min0' function" {
+BB35 [shape=record,
+    label="{BB35:\l\l
+             %36 = icmp-slt %37, %38\l
+             br %36 BB39 BB40\l
+             }"];
+BB35 -> BB39
+BB35 -> BB40
+BB39 [shape=record,
+    label="{BB39:\l\l
+             br BB41\l
+             }"];
+BB39 -> BB41
+BB40 [shape=record,
+    label="{BB40:\l\l
+             br BB41\l
+             }"];
+BB40 -> BB41
+BB41 [shape=record,
+    label="{BB41:\l\l
+             %retval.0 = phi [ %37, BB39 ] , [ %38, BB40 ] \l
+             ret retval.0\l
+             }"];
+}

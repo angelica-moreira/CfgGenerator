@@ -1,0 +1,62 @@
+digraph "CFG for 'Pop' function" {
+BB81 [shape=record,
+    label="{BB81:\l\l
+             %82 = sext %83\l
+             %84 = getelementptr stack, 0, %82\l
+             %85 = load %84\l
+             %86 = icmp-sgt %85, 0\l
+             br %86 BB87 BB88\l
+             }"];
+BB81 -> BB87
+BB81 -> BB88
+BB87 [shape=record,
+    label="{BB87:\l\l
+             %89 = sext %83\l
+             %90 = getelementptr stack, 0, %89\l
+             %91 = load %90\l
+             %92 = sext %91\l
+             %93 = getelementptr cellspace, 0, %92\l
+             %94 = getelementptr %93, 0, 0\l
+             %95 = load %94\l
+             %96 = sext %83\l
+             %97 = getelementptr stack, 0, %96\l
+             %98 = load %97\l
+             %99 = sext %98\l
+             %100 = getelementptr cellspace, 0, %99\l
+             %101 = getelementptr %100, 0, 1\l
+             %102 = load %101\l
+             %103 = load freelist\l
+             %104 = sext %83\l
+             %105 = getelementptr stack, 0, %104\l
+             %106 = load %105\l
+             %107 = sext %106\l
+             %108 = getelementptr cellspace, 0, %107\l
+             %109 = getelementptr %108, 0, 1\l
+             %110 = store %103, %109\l
+             %111 = sext %83\l
+             %112 = getelementptr stack, 0, %111\l
+             %113 = load %112\l
+             %114 = store %113, freelist\l
+             %115 = sext %83\l
+             %116 = getelementptr stack, 0, %115\l
+             %117 = store %102, %116\l
+             br BB118\l
+             }"];
+BB87 -> BB118
+BB88 [shape=record,
+    label="{BB88:\l\l
+             %119 = call @Error()\l
+             br BB120\l
+             }"];
+BB88 -> BB120
+BB120 [shape=record,
+    label="{BB120:\l\l
+             br BB118\l
+             }"];
+BB120 -> BB118
+BB118 [shape=record,
+    label="{BB118:\l\l
+             %retval.0 = phi [ %95, BB87 ] , [ 0, BB120 ] \l
+             ret retval.0\l
+             }"];
+}

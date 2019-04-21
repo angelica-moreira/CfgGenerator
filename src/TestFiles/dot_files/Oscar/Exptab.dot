@@ -1,0 +1,153 @@
+digraph "CFG for 'Exptab' function" {
+BB89 [shape=record,
+    label="{BB89:\l\l
+             %90 = alloca 1\l
+             br BB91\l
+             }"];
+BB89 -> BB91
+BB91 [shape=record,
+    label="{BB91:\l\l
+             %i.0 = phi [ 1, BB89 ] , [ %92, BB93 ] \l
+             %divisor.0 = phi [ 4.000000, BB89 ] , [ %94, BB93 ] \l
+             %95 = icmp-sle %i.0, 25\l
+             br %95 BB96 BB97\l
+             }"];
+BB91 -> BB96
+BB91 -> BB97
+BB96 [shape=record,
+    label="{BB96:\l\l
+             %98 = fdiv 3.141593, %divisor.0\l
+             %99 = call @Cos( %98)\l
+             %100 = fmul 2.000000, %99\l
+             %101 = fdiv 1.000000, %100\l
+             %102 = sext %i.0\l
+             %103 = getelementptr %90, 0, %102\l
+             %104 = store %101, %103\l
+             %94 = fadd %divisor.0, %divisor.0\l
+             br BB93\l
+             }"];
+BB96 -> BB93
+BB93 [shape=record,
+    label="{BB93:\l\l
+             %92 = add %i.0, 1\l
+             br BB91\l
+             }"];
+BB93 -> BB91
+BB97 [shape=record,
+    label="{BB97:\l\l
+             %105 = sdiv %106, 2\l
+             %107 = sdiv %105, 2\l
+             %108 = getelementptr %109, 1\l
+             %110 = getelementptr %108, 0, 0\l
+             %111 = store 1.000000, %110\l
+             %112 = getelementptr %109, 1\l
+             %113 = getelementptr %112, 0, 1\l
+             %114 = store 0.000000, %113\l
+             %115 = add %107, 1\l
+             %116 = sext %115\l
+             %117 = getelementptr %109, %116\l
+             %118 = getelementptr %117, 0, 0\l
+             %119 = store 0.000000, %118\l
+             %120 = add %107, 1\l
+             %121 = sext %120\l
+             %122 = getelementptr %109, %121\l
+             %123 = getelementptr %122, 0, 1\l
+             %124 = store 1.000000, %123\l
+             %125 = add %105, 1\l
+             %126 = sext %125\l
+             %127 = getelementptr %109, %126\l
+             %128 = getelementptr %127, 0, 0\l
+             %129 = store -1.000000, %128\l
+             %130 = add %105, 1\l
+             %131 = sext %130\l
+             %132 = getelementptr %109, %131\l
+             %133 = getelementptr %132, 0, 1\l
+             %134 = store 0.000000, %133\l
+             br BB135\l
+             }"];
+BB97 -> BB135
+BB135 [shape=record,
+    label="{BB135:\l\l
+             %j.0 = phi [ 1, BB97 ] , [ %136, BB137 ] \l
+             %l.0 = phi [ %107, BB97 ] , [ %138, BB137 ] \l
+             %138 = sdiv %l.0, 2\l
+             br BB139\l
+             }"];
+BB135 -> BB139
+BB139 [shape=record,
+    label="{BB139:\l\l
+             %k.0 = phi [ %138, BB135 ] , [ %140, BB141 ] \l
+             %142 = sext %j.0\l
+             %143 = getelementptr %90, 0, %142\l
+             %144 = load %143\l
+             %145 = add %k.0, %138\l
+             %146 = add %145, 1\l
+             %147 = sext %146\l
+             %148 = getelementptr %109, %147\l
+             %149 = getelementptr %148, 0, 0\l
+             %150 = load %149\l
+             %151 = sub %k.0, %138\l
+             %152 = add %151, 1\l
+             %153 = sext %152\l
+             %154 = getelementptr %109, %153\l
+             %155 = getelementptr %154, 0, 0\l
+             %156 = load %155\l
+             %157 = fadd %150, %156\l
+             %158 = fmul %144, %157\l
+             %159 = add %k.0, 1\l
+             %160 = sext %159\l
+             %161 = getelementptr %109, %160\l
+             %162 = getelementptr %161, 0, 0\l
+             %163 = store %158, %162\l
+             %164 = sext %j.0\l
+             %165 = getelementptr %90, 0, %164\l
+             %166 = load %165\l
+             %167 = add %k.0, %138\l
+             %168 = add %167, 1\l
+             %169 = sext %168\l
+             %170 = getelementptr %109, %169\l
+             %171 = getelementptr %170, 0, 1\l
+             %172 = load %171\l
+             %173 = sub %k.0, %138\l
+             %174 = add %173, 1\l
+             %175 = sext %174\l
+             %176 = getelementptr %109, %175\l
+             %177 = getelementptr %176, 0, 1\l
+             %178 = load %177\l
+             %179 = fadd %172, %178\l
+             %180 = fmul %166, %179\l
+             %181 = add %k.0, 1\l
+             %182 = sext %181\l
+             %183 = getelementptr %109, %182\l
+             %184 = getelementptr %183, 0, 1\l
+             %185 = store %180, %184\l
+             %140 = add %k.0, %l.0\l
+             br BB141\l
+             }"];
+BB139 -> BB141
+BB141 [shape=record,
+    label="{BB141:\l\l
+             %186 = icmp-sle %140, %105\l
+             br %186 BB139 BB187\l
+             }"];
+BB141 -> BB139
+BB141 -> BB187
+BB187 [shape=record,
+    label="{BB187:\l\l
+             %188 = add %j.0, 1\l
+             %136 = call @Min0( 25,%188)\l
+             br BB137\l
+             }"];
+BB187 -> BB137
+BB137 [shape=record,
+    label="{BB137:\l\l
+             %189 = icmp-sgt %138, 1\l
+             br %189 BB135 BB190\l
+             }"];
+BB137 -> BB135
+BB137 -> BB190
+BB190 [shape=record,
+    label="{BB190:\l\l
+             ret\l
+             }"];
+}

@@ -1,0 +1,33 @@
+digraph "CFG for 'Getelement' function" {
+BB18 [shape=record,
+    label="{BB18:\l\l
+             %19 = load freelist\l
+             %20 = icmp-sgt %19, 0\l
+             br %20 BB21 BB22\l
+             }"];
+BB18 -> BB21
+BB18 -> BB22
+BB21 [shape=record,
+    label="{BB21:\l\l
+             %23 = load freelist\l
+             %24 = load freelist\l
+             %25 = sext %24\l
+             %26 = getelementptr cellspace, 0, %25\l
+             %27 = getelementptr %26, 0, 1\l
+             %28 = load %27\l
+             %29 = store %28, freelist\l
+             br BB30\l
+             }"];
+BB21 -> BB30
+BB22 [shape=record,
+    label="{BB22:\l\l
+             %31 = call @Error()\l
+             br BB30\l
+             }"];
+BB22 -> BB30
+BB30 [shape=record,
+    label="{BB30:\l\l
+             %temp.0 = phi [ %23, BB21 ] , [ 0, BB22 ] \l
+             ret temp.0\l
+             }"];
+}

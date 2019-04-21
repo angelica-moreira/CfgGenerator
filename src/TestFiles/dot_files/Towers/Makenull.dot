@@ -1,0 +1,9 @@
+digraph "CFG for 'Makenull' function" {
+BB13 [shape=record,
+    label="{BB13:\l\l
+             %14 = sext %15\l
+             %16 = getelementptr stack, 0, %14\l
+             %17 = store 0, %16\l
+             ret\l
+             }"];
+}

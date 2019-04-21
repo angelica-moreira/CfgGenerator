@@ -1,0 +1,97 @@
+digraph "CFG for 'Trial' function" {
+BB125 [shape=record,
+    label="{BB125:\l\l
+             %126 = load kount\l
+             %127 = add %126, 1\l
+             %128 = store %127, kount\l
+             br BB129\l
+             }"];
+BB125 -> BB129
+BB129 [shape=record,
+    label="{BB129:\l\l
+             %i.0 = phi [ 0, BB125 ] , [ %130, BB131 ] \l
+             %132 = icmp-sle %i.0, 12\l
+             br %132 BB133 BB134\l
+             }"];
+BB129 -> BB133
+BB129 -> BB134
+BB133 [shape=record,
+    label="{BB133:\l\l
+             %135 = sext %i.0\l
+             %136 = getelementptr class, 0, %135\l
+             %137 = load %136\l
+             %138 = sext %137\l
+             %139 = getelementptr piececount, 0, %138\l
+             %140 = load %139\l
+             %141 = icmp-ne %140, 0\l
+             br %141 BB142 BB143\l
+             }"];
+BB133 -> BB142
+BB133 -> BB143
+BB142 [shape=record,
+    label="{BB142:\l\l
+             %144 = call @Fit( %145,%i.0)\l
+             %146 = icmp-ne %144, 0\l
+             br %146 BB147 BB148\l
+             }"];
+BB142 -> BB147
+BB142 -> BB148
+BB147 [shape=record,
+    label="{BB147:\l\l
+             %149 = call @Place( %145,%i.0)\l
+             %150 = call @Trial( %149)\l
+             %151 = icmp-ne %150, 0\l
+             br %151 BB152 BB153\l
+             }"];
+BB147 -> BB152
+BB147 -> BB153
+BB153 [shape=record,
+    label="{BB153:\l\l
+             %154 = icmp-eq %149, 0\l
+             br %154 BB152 BB155\l
+             }"];
+BB153 -> BB152
+BB153 -> BB155
+BB152 [shape=record,
+    label="{BB152:\l\l
+             br BB156\l
+             }"];
+BB152 -> BB156
+BB155 [shape=record,
+    label="{BB155:\l\l
+             %157 = call @Remove( %145,%i.0)\l
+             br BB158\l
+             }"];
+BB155 -> BB158
+BB158 [shape=record,
+    label="{BB158:\l\l
+             br BB148\l
+             }"];
+BB158 -> BB148
+BB148 [shape=record,
+    label="{BB148:\l\l
+             br BB143\l
+             }"];
+BB148 -> BB143
+BB143 [shape=record,
+    label="{BB143:\l\l
+             br BB131\l
+             }"];
+BB143 -> BB131
+BB131 [shape=record,
+    label="{BB131:\l\l
+             %130 = add %i.0, 1\l
+             br BB129\l
+             }"];
+BB131 -> BB129
+BB134 [shape=record,
+    label="{BB134:\l\l
+             br BB156\l
+             }"];
+BB134 -> BB156
+BB156 [shape=record,
+    label="{BB156:\l\l
+             %retval.0 = phi [ 1, BB152 ] , [ 0, BB134 ] \l
+             ret retval.0\l
+             }"];
+}

@@ -1,0 +1,11 @@
+digraph "CFG for 'Move' function" {
+BB121 [shape=record,
+    label="{BB121:\l\l
+             %122 = call @Pop( %123)\l
+             %124 = call @Push( %125,%122)\l
+             %126 = load movesdone\l
+             %127 = add %126, 1\l
+             %128 = store %127, movesdone\l
+             ret\l
+             }"];
+}

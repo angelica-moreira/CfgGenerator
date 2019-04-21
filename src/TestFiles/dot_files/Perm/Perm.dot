@@ -1,0 +1,49 @@
+digraph "CFG for 'Perm' function" {
+BB57 [shape=record,
+    label="{BB57:\l\l
+             %58 = store 0, pctr\l
+             br BB59\l
+             }"];
+BB57 -> BB59
+BB59 [shape=record,
+    label="{BB59:\l\l
+             %i.0 = phi [ 1, BB57 ] , [ %60, BB61 ] \l
+             %62 = icmp-sle %i.0, 5\l
+             br %62 BB63 BB64\l
+             }"];
+BB59 -> BB63
+BB59 -> BB64
+BB63 [shape=record,
+    label="{BB63:\l\l
+             %65 = call @Initialize()\l
+             %66 = call @Permute( 7)\l
+             br BB61\l
+             }"];
+BB63 -> BB61
+BB61 [shape=record,
+    label="{BB61:\l\l
+             %60 = add %i.0, 1\l
+             br BB59\l
+             }"];
+BB61 -> BB59
+BB64 [shape=record,
+    label="{BB64:\l\l
+             %67 = load pctr\l
+             %68 = icmp-ne %67, 43300\l
+             br %68 BB69 BB70\l
+             }"];
+BB64 -> BB69
+BB64 -> BB70
+BB69 [shape=record,
+    label="{BB69:\l\l
+             %71 = call @printf()\l
+             br BB70\l
+             }"];
+BB69 -> BB70
+BB70 [shape=record,
+    label="{BB70:\l\l
+             %72 = load pctr\l
+             %73 = call @printf( %72)\l
+             ret\l
+             }"];
+}
