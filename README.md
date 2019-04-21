@@ -30,7 +30,7 @@ int main(int argc, char** argv) {
 
 For this program, you must produce an output similar to the following figure (click to enlarge), which was constructed with the graphviz tool, publicly available to linux and OSX:
 
-Notice that the exact shape of your CFG will depend on how you have produced the LLVM IR. It's ok if your output is not exactly the same as the example above, as long as the four requirements are observed. The figure above was produced from this DOT, which I have transcribed below. Notice that DOT files are printed in simple ASCII characters. If dot is installed in your system, you can produce that file with the syntax: dot -Tpdf file.dot -o file.pdf.
+Notice that the exact shape of your CFG will depend on how you have produced the LLVM IR. It's ok if your output is not exactly the same as the example above, as long as the four requirements are observed. The figure above was produced from this DOT, which I have transcribed below. Notice that DOT files are printed in simple ASCII characters. If dot is installed in your system, you can produce that file with the syntax: `dot -Tpdf file.dot -o file.pdf`.
 
 ```
 digraph "CFG for 'main' function" {
