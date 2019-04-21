@@ -15,8 +15,10 @@ first project, which is TP1/CfgGenerator/src, indicating the root path where you
 
 This script will execute the following comand: cmake -DBUILD_SHARED_LIBS=ON $LLVM_BUILD_DIR ..
 
-After that the Makefile should be generated and the shared library can be built by simply running a "make" command. 
-This will also generate a build folder and inside a shared library called [libCfgGenerator], which is our compiled pass. 
+After that the Makefile should be generated and the shared library can be built by simply running a "make" command, which is
+being executed in our build.sh script as folllows: make -j8
+ 
+After running the build.sh it  will also generate a build folder and inside a shared library called [libCfgGenerator], which is our compiled pass. 
 Pay attention that this library may have either the extension .dylib (if your OS is MacOS) or .so (if your OS is linux). 
 
 --------------------------------
