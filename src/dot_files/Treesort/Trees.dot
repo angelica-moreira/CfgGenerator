@@ -1,69 +1,69 @@
 digraph "CFG for 'Trees' function" {
-BB152 [shape=record,
-    label="{BB152:\l\l
-             %153 = call @tInitarr()\l
-             %154 = call @malloc( 24)\l
-             %155 = bitcast %154\l
-             %156 = store %155, tree\l
-             %157 = load tree\l
-             %158 = getelementptr %157, 0, 0\l
-             %159 = store %158\l
-             %160 = load tree\l
-             %161 = getelementptr %160, 0, 1\l
-             %162 = store %161\l
-             %163 = loa\l
-             %164 = load tree\l
-             %165 = getelementptr %164, 0, 2\l
-             %166 = store %163, %165\l
-             br BB167\l
+BB154 [shape=record,
+    label="{BB154:\l\l
+             %155 = call @tInitarr()\l
+             %156 = call @malloc( 24)\l
+             %157 = bitcast %156\l
+             %158 = store %157, tree\l
+             %159 = load tree\l
+             %160 = getelementptr %159, 0, 0\l
+             %161 = store %160\l
+             %162 = load tree\l
+             %163 = getelementptr %162, 0, 1\l
+             %164 = store %163\l
+             %165 = loa\l
+             %166 = load tree\l
+             %167 = getelementptr %166, 0, 2\l
+             %168 = store %165, %167\l
+             br BB169\l
              }"];
-BB152 -> BB167
-BB167 [shape=record,
-    label="{BB167:\l\l
-             %i.0 = phi [ 2, BB152 ] , [ %168, BB169 ] \l
-             %170 = icmp-sle %i.0, 5000\l
-             br %170 BB171 BB172\l
+BB154 -> BB169
+BB169 [shape=record,
+    label="{BB169:\l\l
+             %i.0 = phi [ 2, BB154 ] , [ %170, BB171 ] \l
+             %172 = icmp-sle %i.0, 5000\l
+             br %172 BB173 BB174\l
              }"];
-BB167 -> BB171
-BB167 -> BB172
+BB169 -> BB173
+BB169 -> BB174
+BB173 [shape=record,
+    label="{BB173:\l\l
+             %175 = sext %i.0\l
+             %176 = getelementptr sortlist, 0, %175\l
+             %177 = load %176\l
+             %178 = load tree\l
+             %179 = call @Insert( %178,%177)\l
+             br BB171\l
+             }"];
+BB173 -> BB171
 BB171 [shape=record,
     label="{BB171:\l\l
-             %173 = sext %i.0\l
-             %174 = getelementptr sortlist, 0, %173\l
-             %175 = load %174\l
-             %176 = load tree\l
-             %177 = call @Insert( %176,%175)\l
+             %170 = add %i.0, 1\l
              br BB169\l
              }"];
 BB171 -> BB169
-BB169 [shape=record,
-    label="{BB169:\l\l
-             %168 = add %i.0, 1\l
-             br BB167\l
+BB174 [shape=record,
+    label="{BB174:\l\l
+             %180 = add 2, %181\l
+             %182 = sext %180\l
+             %183 = getelementptr sortlist, 0, %182\l
+             %184 = load %183\l
+             %185 = call @printf( %184)\l
+             %186 = load tree\l
+             %187 = call @Checktree( %186)\l
+             %188 = icmp-ne %187, 0\l
+             br %188 BB189 BB190\l
              }"];
-BB169 -> BB167
-BB172 [shape=record,
-    label="{BB172:\l\l
-             %178 = add 2, %179\l
-             %180 = sext %178\l
-             %181 = getelementptr sortlist, 0, %180\l
-             %182 = load %181\l
-             %183 = call @printf( %182)\l
-             %184 = load tree\l
-             %185 = call @Checktree( %184)\l
-             %186 = icmp-ne %185, 0\l
-             br %186 BB187 BB188\l
+BB174 -> BB189
+BB174 -> BB190
+BB190 [shape=record,
+    label="{BB190:\l\l
+             %191 = call @printf()\l
+             br BB189\l
              }"];
-BB172 -> BB187
-BB172 -> BB188
-BB188 [shape=record,
-    label="{BB188:\l\l
-             %189 = call @printf()\l
-             br BB187\l
-             }"];
-BB188 -> BB187
-BB187 [shape=record,
-    label="{BB187:\l\l
+BB190 -> BB189
+BB189 [shape=record,
+    label="{BB189:\l\l
              ret\l
              }"];
 }

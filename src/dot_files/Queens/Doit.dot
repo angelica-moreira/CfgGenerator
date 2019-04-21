@@ -1,102 +1,102 @@
 digraph "CFG for 'Doit' function" {
-BB85 [shape=record,
-    label="{BB85:\l\l
-             %86 = alloca 1\l
+BB86 [shape=record,
+    label="{BB86:\l\l
              %87 = alloca 1\l
              %88 = alloca 1\l
              %89 = alloca 1\l
              %90 = alloca 1\l
-             br BB91\l
+             %91 = alloca 1\l
+             br BB92\l
              }"];
-BB85 -> BB91
-BB91 [shape=record,
-    label="{BB91:\l\l
-             %i.0 = phi [ -7, BB85 ] , [ %92, BB93 ] \l
-             %94 = icmp-sle %i.0, 16\l
-             br %94 BB95 BB96\l
+BB86 -> BB92
+BB92 [shape=record,
+    label="{BB92:\l\l
+             %i.0 = phi [ -7, BB86 ] , [ %93, BB94 ] \l
+             %95 = icmp-sle %i.0, 16\l
+             br %95 BB96 BB97\l
              }"];
-BB91 -> BB95
-BB91 -> BB96
-BB95 [shape=record,
-    label="{BB95:\l\l
-             %97 = icmp-sge %i.0, 1\l
-             br %97 BB98 BB99\l
-             }"];
-BB95 -> BB98
-BB95 -> BB99
-BB98 [shape=record,
-    label="{BB98:\l\l
-             %100 = icmp-sle %i.0, 8\l
-             br %100 BB101 BB99\l
-             }"];
-BB98 -> BB101
-BB98 -> BB99
-BB101 [shape=record,
-    label="{BB101:\l\l
-             %102 = sext %i.0\l
-             %103 = getelementptr %87, 0, %102\l
-             %104 = store 1, %103\l
-             br BB99\l
-             }"];
-BB101 -> BB99
-BB99 [shape=record,
-    label="{BB99:\l\l
-             %105 = icmp-sge %i.0, 2\l
-             br %105 BB106 BB107\l
-             }"];
-BB99 -> BB106
-BB99 -> BB107
-BB106 [shape=record,
-    label="{BB106:\l\l
-             %108 = sext %i.0\l
-             %109 = getelementptr %88, 0, %108\l
-             %110 = store 1, %109\l
-             br BB107\l
-             }"];
-BB106 -> BB107
-BB107 [shape=record,
-    label="{BB107:\l\l
-             %111 = icmp-sle %i.0, 7\l
-             br %111 BB112 BB93\l
-             }"];
-BB107 -> BB112
-BB107 -> BB93
-BB112 [shape=record,
-    label="{BB112:\l\l
-             %113 = add %i.0, 7\l
-             %114 = sext %113\l
-             %115 = getelementptr %89, 0, %114\l
-             %116 = store 1, %115\l
-             br BB93\l
-             }"];
-BB112 -> BB93
-BB93 [shape=record,
-    label="{BB93:\l\l
-             %92 = add %i.0, 1\l
-             br BB91\l
-             }"];
-BB93 -> BB91
+BB92 -> BB96
+BB92 -> BB97
 BB96 [shape=record,
     label="{BB96:\l\l
-             %117 = getelementptr %88, 0, 0\l
-             %118 = getelementptr %87, 0, 0\l
-             %119 = getelementptr %89, 0, 0\l
-             %120 = getelementptr %90, 0, 0\l
-             %121 = call @Try( %86,1)\l
-             %122 = load %86\l
-             %123 = icmp-ne %122, 0\l
-             br %123 BB124 BB125\l
+             %98 = icmp-sge %i.0, 1\l
+             br %98 BB99 BB100\l
              }"];
-BB96 -> BB124
-BB96 -> BB125
+BB96 -> BB99
+BB96 -> BB100
+BB99 [shape=record,
+    label="{BB99:\l\l
+             %101 = icmp-sle %i.0, 8\l
+             br %101 BB102 BB100\l
+             }"];
+BB99 -> BB102
+BB99 -> BB100
+BB102 [shape=record,
+    label="{BB102:\l\l
+             %103 = sext %i.0\l
+             %104 = getelementptr %88, 0, %103\l
+             %105 = store 1, %104\l
+             br BB100\l
+             }"];
+BB102 -> BB100
+BB100 [shape=record,
+    label="{BB100:\l\l
+             %106 = icmp-sge %i.0, 2\l
+             br %106 BB107 BB108\l
+             }"];
+BB100 -> BB107
+BB100 -> BB108
+BB107 [shape=record,
+    label="{BB107:\l\l
+             %109 = sext %i.0\l
+             %110 = getelementptr %89, 0, %109\l
+             %111 = store 1, %110\l
+             br BB108\l
+             }"];
+BB107 -> BB108
+BB108 [shape=record,
+    label="{BB108:\l\l
+             %112 = icmp-sle %i.0, 7\l
+             br %112 BB113 BB94\l
+             }"];
+BB108 -> BB113
+BB108 -> BB94
+BB113 [shape=record,
+    label="{BB113:\l\l
+             %114 = add %i.0, 7\l
+             %115 = sext %114\l
+             %116 = getelementptr %90, 0, %115\l
+             %117 = store 1, %116\l
+             br BB94\l
+             }"];
+BB113 -> BB94
+BB94 [shape=record,
+    label="{BB94:\l\l
+             %93 = add %i.0, 1\l
+             br BB92\l
+             }"];
+BB94 -> BB92
+BB97 [shape=record,
+    label="{BB97:\l\l
+             %118 = getelementptr %89, 0, 0\l
+             %119 = getelementptr %88, 0, 0\l
+             %120 = getelementptr %90, 0, 0\l
+             %121 = getelementptr %91, 0, 0\l
+             %122 = call @Try( %87,1)\l
+             %123 = load %87\l
+             %124 = icmp-ne %123, 0\l
+             br %124 BB125 BB126\l
+             }"];
+BB97 -> BB125
+BB97 -> BB126
+BB126 [shape=record,
+    label="{BB126:\l\l
+             %127 = call @printf()\l
+             br BB125\l
+             }"];
+BB126 -> BB125
 BB125 [shape=record,
     label="{BB125:\l\l
-             %126 = call @printf()\l
-             br BB124\l
-             }"];
-BB125 -> BB124
-BB124 [shape=record,
-    label="{BB124:\l\l
              ret\l
              }"];
 }

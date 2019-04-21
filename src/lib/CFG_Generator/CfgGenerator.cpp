@@ -52,15 +52,23 @@ string CfgGenerator::getPhiNodeValueLabel(Value *instruction, string prefix)
 {
   map<Value *, string>::iterator it = valuesMap.find(instruction);
   string instructionLabel = instruction->getName();
+  
   if (it != valuesMap.end())
   {
     instructionLabel = it->second;
   }
-  else
+  else 
   {
-    instructionLabel = prefix + instructionLabel;
+    if(instructionLabel != "")
+    {
+      instructionLabel = prefix + instructionLabel;
+    }
+    else{
+      instructionLabel = prefix + to_string(instrCount);
+      ++instrCount;
+    }
     valuesMap[instruction] = instructionLabel;
-  }
+  } 
 
   return instructionLabel;
 }
